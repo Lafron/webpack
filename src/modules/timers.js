@@ -21,36 +21,42 @@ const timers = deadline => {
     };
 
 
-    const updateClock = () => {
+    const updateClock = getTime => {
+        getTime = getTimeRemaining(deadline);
+        for (let k in getTime){
+            if (getTime[k] < 10) {
+                getTime[k] = "0" + getTime[k];
+            }
+        }
+        timerDays.textContent = getTime.days;
+        timerHours.textContent = getTime.hours;
+        timerMinutes.textContent = getTime.minutes;
+        timerSeconds.textContent = getTime.seconds;    
+    };
+
+    const setZero = () => {
+        timerDays.textContent = "00";
+        timerHours.textContent = "00";
+        timerMinutes.textContent = "00";
+        timerSeconds.textContent = "00";
+    };
+
+        const start = () => {
         let getTime = getTimeRemaining(deadline);
 
-//        console.log(getTime);
-        if(getTime.timeRemaining > 0){
-            //let days, hours, minutes, seconds;
-            for (let k in getTime){
-                if (getTime[k] < 10) {
-                    getTime[k] = "0" + getTime[k];
-                }
-            }
-
-            timerDays.textContent = getTime.days;
-            timerHours.textContent = getTime.hours;
-            timerMinutes.textContent = getTime.minutes;
-            timerSeconds.textContent = getTime.seconds;
-            
-            //console.log(getTime.seconds);
-            setInterval(updateClock, 1000);
+        if(getTime.timeRemaining > 0){        
+            updateClock(getTime);
+            setInterval(updateClock, 1000, getTime);
         }
         else{
-            timerDays.textContent = "00";
-            timerHours.textContent = "00";
-            timerMinutes.textContent = "00";
-            timerSeconds.textContent = "00";
+            setZero();
         }
-
    };
 
-    updateClock();
+   start();
+
+    
+    //updateClock();
     
     
 };
