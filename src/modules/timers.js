@@ -1,7 +1,4 @@
-const timers = deadline => {
-    //console.log(deadline);
-
-   
+const timers = deadline => {   
     const timerDays = document.querySelector("#timer-days");
     const timerHours = document.querySelector("#timer-hours");
     const timerMinutes = document.querySelector("#timer-minutes");
@@ -27,12 +24,12 @@ const timers = deadline => {
     const updateClock = () => {
         let getTime = getTimeRemaining(deadline);
 
-        console.log(getTime);
+//        console.log(getTime);
         if(getTime.timeRemaining > 0){
             //let days, hours, minutes, seconds;
             for (let k in getTime){
-                if (k < 10) {
-                    k = "0" + k;
+                if (getTime[k] < 10) {
+                    getTime[k] = "0" + getTime[k];
                 }
             }
 
