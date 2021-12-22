@@ -1,6 +1,6 @@
-import one from "./modules/one";
-import two from "./modules/two";
+import timers from "./modules/timers";
+// import two from "./modules/two";
 
 
-one();
-two();
+timers("01 january 2022");
+//two();
