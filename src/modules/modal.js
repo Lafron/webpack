@@ -1,3 +1,4 @@
+"use strick";
 const modal = () => {
     
     const modal = document.querySelector(".popup");

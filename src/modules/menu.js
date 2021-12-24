@@ -1,3 +1,4 @@
+"use strick";
 const menu = () => {
     const menuBtn = document.querySelector(".menu");
     const menu = document.querySelector("menu");
@@ -7,7 +8,9 @@ const menu = () => {
     const main = document.querySelector("main");
     const target = main.querySelector("a[href='#service-block']>img[src='images/scroll.svg']");
 
-    const handleMenu = () => {
+    const handleMenu = event => {
+        console.log(event);
+        event.preventDefault();
         menu.classList.toggle("active-menu");
     };
 
@@ -15,7 +18,7 @@ const menu = () => {
     
     const scrollF = event => {
         event.preventDefault();
-        handleMenu();
+        handleMenu(event);
 
         let aimIndex = event.target.href.indexOf("#");
         let aimId = event.target.href.substring(aimIndex);
@@ -44,10 +47,6 @@ const menu = () => {
     target.addEventListener("click", moveDown);
 };
 
-
-
 export default menu;
-
-
 
 

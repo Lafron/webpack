@@ -1,3 +1,4 @@
+"use strick";
 const timers = deadline => {   
     //const timerDays = document.querySelector("#timer-days");
     const timerHours = document.querySelector("#timer-hours");
@@ -53,13 +54,7 @@ const timers = deadline => {
             setZero();
         }
    };
-
    start();
-
-    
-    //updateClock();
-    
-    
 };
 
 export default timers;
