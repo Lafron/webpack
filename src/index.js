@@ -1,6 +1,7 @@
 import timers from "./modules/timers";
-// import two from "./modules/two";
-
+import menu from "./modules/menu";
+import modal from "./modules/modal";
 
 timers("1 january 2022");
-//two();
+menu();
+modal();
