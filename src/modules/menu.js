@@ -44,10 +44,4 @@ const menu = () => {
     target.addEventListener("click", moveDown);
 };
 
-
-
 export default menu;
-
-
-
-

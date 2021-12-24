@@ -54,12 +54,7 @@ const timers = deadline => {
         }
    };
 
-   start();
-
-    
-    //updateClock();
-    
-    
+   start();    
 };
 
 export default timers;
