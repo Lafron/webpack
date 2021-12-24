@@ -7,15 +7,14 @@ const menu = () => {
     const main = document.querySelector("main");
     const target = main.querySelector("a[href='#service-block']>img[src='images/scroll.svg']");
 
-    const handleMenu = () => {
+    const handleMenu = event => {
+        event.preventDefault();
         menu.classList.toggle("active-menu");
     };
-
-    //console.log(document.documentElement.clientHeight);
     
     const scrollF = event => {
         event.preventDefault();
-        handleMenu();
+        handleMenu(event);
 
         let aimIndex = event.target.href.indexOf("#");
         let aimId = event.target.href.substring(aimIndex);
