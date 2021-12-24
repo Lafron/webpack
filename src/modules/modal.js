@@ -11,12 +11,12 @@ const modal = () => {
     
     const showPopup = () => { 
         let animationFrameId = requestAnimationFrame(showPopup);
-        if (index < 200){
+        if (index < 100){
             index++;
-            contentMenu.style.opacity = index / 200;
+            contentMenu.style.opacity = index / 100;
         }
         else{
-            index = 200;  
+            index = 100;  
             cancelAnimationFrame(animationFrameId);       
         }     
 };
@@ -37,8 +37,6 @@ const modal = () => {
     buttons.forEach( btn => {
         btn.addEventListener("click", () => {
             modal.style.display = "block";
-            console.log(document.documentElement.clientWidth);
-            console.log(document.body.offsetWidth);
             if(document.body.offsetWidth > 768){
                 contentMenu.style.opacity = 0;
                 showPopup();
