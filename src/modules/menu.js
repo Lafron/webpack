@@ -9,7 +9,6 @@ const menu = () => {
     const target = main.querySelector("a[href='#service-block']>img[src='images/scroll.svg']");
 
     const handleMenu = event => {
-        console.log(event);
         event.preventDefault();
         menu.classList.toggle("active-menu");
     };
