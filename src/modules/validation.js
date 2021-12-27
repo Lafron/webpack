@@ -6,7 +6,7 @@ const validation = () => {
 
     calcInputArr.forEach(input => {
         input.addEventListener("input", e => {
-            e.target.value = e.target.value.replace(/\D+/,"");
+            e.target.value = e.target.value.replace(/\D+/, "");
         });
     });
 
@@ -16,20 +16,16 @@ const validation = () => {
         });
     });
 
-
-    const texts = document.querySelectorAll("input[type='text']");
-    const emails = document.querySelectorAll("input[type='email']");
-    const tels = document.querySelectorAll("input[type='tel']");
-    const submits = document.querySelectorAll("button[type='submit']");
+    const texts = document.querySelectorAll("form input[type='text']");
+    const emails = document.querySelectorAll("form input[type='email']");
+    const tels = document.querySelectorAll("form input[type='tel']");
     const message = document.querySelector("#form2-message");
 
     texts.forEach(text => {
         text.addEventListener("input", e => {
-            //console.log(e.target);
             let val = e.target.value;
             const letters = /^[А-Яа-яёЁ]+$/;
             if(!val.match(letters)){
-                alert('Неверный формат ввода');
                 e.target.value = "";
             }
         });
@@ -45,24 +41,24 @@ const validation = () => {
             let val = e.target.value;
             const letters = /^[А-Яа-яёЁ]+$/;
             if(!val.match(letters)){
-                alert('Неверный формат ввода');
                 e.target.value = "";
             }
         });
 
 
-    submits.forEach(submit => {
-        submit.addEventListener("click", e => {
-            e.preventDefault();
-            const div = e.target.parentNode.parentNode.parentNode;
-            const email = div.querySelector("input[type='email']");
-            
-            if(!validateEmail(email.value)){
-                alert("address is not correct");
-                email.value = "";
+    emails.forEach(email => {
+        email.addEventListener("input", e => {
+            //e.target.value = e.target.value.replace(/^[^a-zA-Z0-9@]+$/,"");
+            let val = e.target.value;
+            const letters = /^[a-zA-Z0-9@\-\_\.\!\~\*\']+$/;
+            if(!val.match(letters)){
+                e.target.value = "";
             }
-            else{
-                alert("submit");
+        });
+
+        email.addEventListener("blur", () => {
+            if(!validateEmail(email.value)){
+                email.value = "";
             }
         });
     });

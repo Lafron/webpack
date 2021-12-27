@@ -7,8 +7,6 @@ const modal = () => {
     const contentMenu = modal.querySelector(".popup-content");
 
     let index = 0;
-
-    //let winWidth2 = document.documentElement.clientWidth;
     
     const showPopup = () => { 
         let animationFrameId = requestAnimationFrame(showPopup);
@@ -25,8 +23,8 @@ const modal = () => {
     const closePopup = () => { 
         let animationFrameId = requestAnimationFrame(closePopup);
         if (index > 0){
-            index--;
-            contentMenu.style.opacity = index / 200;
+            index = index - 3;
+            contentMenu.style.opacity = index / 100;
         }
         else{
             index = 0;  
