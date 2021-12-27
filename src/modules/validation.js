@@ -4,11 +4,6 @@ const validation = () => {
     const calcSelect = calcBlock.querySelector("select");
     const calcInputArr = calcBlock.querySelectorAll("input[type='text']");
 
-    console.log(calcBlock);
-    console.log(calcSelect);
-    console.log(calcInputArr);
-
-
     calcInputArr.forEach(input => {
         input.addEventListener("input", e => {
             console.log(e.target.value);
