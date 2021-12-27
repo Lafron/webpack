@@ -12,8 +12,6 @@ const menu = () => {
         event.preventDefault();
         menu.classList.toggle("active-menu");
     };
-
-    //console.log(document.documentElement.clientHeight);
     
     const scrollF = event => {
         event.preventDefault();
