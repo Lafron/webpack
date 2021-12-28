@@ -3,7 +3,6 @@ const modal = () => {
     
     const modal = document.querySelector(".popup");
     const buttons = document.querySelectorAll(".popup-btn");
-    const btnClose = modal.querySelector(".popup-close");
     const contentMenu = modal.querySelector(".popup-content");
 
     let index = 0;
@@ -46,14 +45,18 @@ const modal = () => {
         });
     });
 
-    btnClose.addEventListener("click", () => {
-        if(document.body.offsetWidth > 768){
-            closePopup();
-        }
-        else{
-            modal.style.display = "none";
+    modal.addEventListener("click", e => {
+        if(!e.target.closest(".popup-content")||e.target.closest(".popup-close")){
+            if(document.body.offsetWidth > 768){
+                closePopup();
+            }
+            else{
+                modal.style.display = "none";
+            }
         }
     });
+
+
 };
 
 export default modal;
