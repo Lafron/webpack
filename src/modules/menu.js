@@ -1,32 +1,29 @@
 "use strick";
 const menu = () => {
-    const menuBtn = document.querySelector(".menu");
     const menu = document.querySelector("menu");
-    const closeBtn = menu.querySelector(".close-btn");
-    const menuItems = menu.querySelectorAll("ul>li>a");
-
     const main = document.querySelector("main");
-    const target = main.querySelector("a[href='#service-block']>img[src='images/scroll.svg']");
+    //const target = main.querySelector("a[href='#service-block']>img[src='images/scroll.svg']");
 
-    const handleMenu = event => {
-        event.preventDefault();
+    const handleMenu = e => {
+        e.preventDefault();
         menu.classList.toggle("active-menu");
     };
     
-    const scrollF = event => {
-        event.preventDefault();
-        handleMenu(event);
+    const scrollF = e => {
+        e.preventDefault();
+        handleMenu(e);
 
-        let aimIndex = event.target.href.indexOf("#");
-        let aimId = event.target.href.substring(aimIndex);
+        let aimIndex = e.target.href.indexOf("#");
+        let aimId = e.target.href.substring(aimIndex);
         
         let aim = document.querySelector(aimId);
         aim.scrollIntoView({behavior: "smooth"});
     };
 
-    const moveDown = event => {
-        event.preventDefault();
-        let aimAdr = target.parentElement;
+    const moveDown = e => {
+        e.preventDefault();
+        console.log(e.target);
+        let aimAdr = e.target.parentElement;
         let aimIndex = aimAdr.href.indexOf("#");
         let aimId = aimAdr.href.substring(aimIndex);
         
@@ -34,14 +31,23 @@ const menu = () => {
         aim.scrollIntoView({behavior: "smooth"});
     };
 
-    menuBtn.addEventListener("click", handleMenu);
-    closeBtn.addEventListener("click", handleMenu);
-
-    menuItems.forEach(item => {
-        item.addEventListener("click", scrollF);
+    menu.addEventListener("click", e =>{
+        if(e.target.closest(".close-btn")){
+            handleMenu(e);            
+        }
+        else if(e.target.closest("li")){
+            scrollF(e);
+        }
     });
 
-    target.addEventListener("click", moveDown);
+    main.addEventListener("click", e => {
+        if(e.target.closest(".menu")){
+            handleMenu(e);
+        }
+        else if(e.target.closest("a")) {
+            moveDown(e);
+        }
+    });
 };
 
 export default menu;
