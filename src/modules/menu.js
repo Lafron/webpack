@@ -2,7 +2,6 @@
 const menu = () => {
     const menu = document.querySelector("menu");
     const main = document.querySelector("main");
-    //const target = main.querySelector("a[href='#service-block']>img[src='images/scroll.svg']");
 
     const handleMenu = e => {
         e.preventDefault();
@@ -22,7 +21,6 @@ const menu = () => {
 
     const moveDown = e => {
         e.preventDefault();
-        console.log(e.target);
         let aimAdr = e.target.parentElement;
         let aimIndex = aimAdr.href.indexOf("#");
         let aimId = aimAdr.href.substring(aimIndex);
