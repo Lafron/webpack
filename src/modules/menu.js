@@ -33,7 +33,7 @@ const menu = () => {
         if(e.target.closest(".close-btn")){
             handleMenu(e);            
         }
-        else if(e.target.closest("li")){
+        else if(e.target.closest("li>a")){
             scrollF(e);
         }
     });
