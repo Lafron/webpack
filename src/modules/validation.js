@@ -10,11 +10,11 @@ const validation = () => {
         });
     });
 
-    calcSelect.addEventListener("change", () => {
-        calcInputArr.forEach(input => {
-            input.value = "";
-        });
-    });
+    // calcSelect.addEventListener("change", () => {
+    //     calcInputArr.forEach(input => {
+    //         input.value = "";
+    //     });
+    // });
 
     const texts = document.querySelectorAll("form input[type='text']");
     const emails = document.querySelectorAll("form input[type='email']");
