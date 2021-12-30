@@ -1,37 +1,51 @@
 "use strick";
+import {animate} from "./helpers";
+
 const modal = () => {
     
     const modal = document.querySelector(".popup");
     const buttons = document.querySelectorAll(".popup-btn");
     const contentMenu = modal.querySelector(".popup-content");
-
-    let index = 0;
     
     const showPopup = () => { 
-        let animationFrameId = requestAnimationFrame(showPopup);
-        if (index < 100){
-            index++;
-            contentMenu.style.opacity = index / 100;
+        animate({
+        duration: 1000,
+        timing(timeFraction) {
+            return circ(timeFraction);
+        },
+        draw(progress) {
+            contentMenu.style.opacity = progress;
         }
-        else{
-            index = 100;  
-            cancelAnimationFrame(animationFrameId);       
-        }     
+    });
 };
 
     const closePopup = () => { 
-        let animationFrameId = requestAnimationFrame(closePopup);
-        if (index > 0){
-            index = index - 3;
-            contentMenu.style.opacity = index / 100;
-        }
-        else{
-            index = 0;  
-            cancelAnimationFrame(animationFrameId);  
-            modal.style.display = "none";
-        }     
-   
+        animate({
+        duration: 500,
+        timing(timeFraction) {
+            return bounce(timeFraction);
+        },
+        draw(progress) {
+            contentMenu.style.opacity = 1 - progress;
+            if(progress == 1){
+                modal.style.display = "none";
+            }
+        } 
+    });   
 };
+
+    function bounce(timeFraction) {
+        for (let a = 0, b = 1; 1; a += b, b /= 2) {
+            if (timeFraction >= (7 - 4 * a) / 11) {
+                return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2);
+            }
+        }
+    }
+
+    function circ(timeFraction) {
+        return 1 - Math.sin(Math.acos(timeFraction));
+    }
+
     buttons.forEach( btn => {
         btn.addEventListener("click", () => {
             modal.style.display = "block";
@@ -55,7 +69,6 @@ const modal = () => {
             }
         }
     });
-
 
 };
 

@@ -6,7 +6,6 @@ const calc = price => {
     const calcDay = document.querySelector(".calc-day");
     const total = document.querySelector("#total");
 
-
     const countCalc = () => {
         let index = calcType.selectedIndex;
         const calcTypeValue = +calcType.options[index].value;
@@ -34,11 +33,11 @@ const calc = price => {
             totalValue = 0;
         }
 
-        total.textContent = totalValue; 
-        
+        total.textContent = totalValue;
     };
 
     calcBlock.addEventListener("input", e => {
+        
         const tar = e.target;
         if(tar === calcType || tar === calcSquare ||
              tar === calcCount || tar === calcDay){
