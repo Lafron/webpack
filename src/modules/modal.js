@@ -10,14 +10,12 @@ const modal = () => {
     const forms = document.querySelectorAll("form") ;
     
     forms.forEach(form => {
-        //console.log(form);
         const submit = form.querySelector("button[type='submit']");
        
         submit.addEventListener("click", () =>{
             console.log("submit: ",form.id);
             sendForm(form);
         });
-        //console.log(submit);
     });
     
     const showPopup = () => { 

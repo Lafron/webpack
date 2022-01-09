@@ -1,6 +1,5 @@
-const sendForm = form=> {
-    //const form = document.getElementById(formId);
-    console.log("sendForm.js/sendForm: ", form);
+const sendForm = form => {
+
     const statusBlock = document.createElement("div");
 
     const loadText = "Загрузка";
@@ -12,7 +11,7 @@ const sendForm = form=> {
 
         list.forEach(input => {
             if(input.type == 'text'){                
-                const letters = /^[А-Яа-яёЁ]+$/;
+                const letters = /^[А-Яа-яёЁ0-9]+$/;
                 if(!input.value.match(letters)){
                     success = false;
                     return success;
