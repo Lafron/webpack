@@ -1,4 +1,7 @@
 "use strick";
+
+import sendForm from "./sendForm";
+
 const menu = () => {
     const menu = document.querySelector("menu");
     const main = document.querySelector("main");
@@ -40,6 +43,7 @@ const menu = () => {
 
     main.addEventListener("click", e => {
         if(e.target.closest(".menu")){
+            //console.log(e.target);
             handleMenu(e);
         }
         else if(e.target.closest("a")) {

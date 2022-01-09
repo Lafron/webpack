@@ -1,3 +1,5 @@
+import sendForm from "./sendForm";
+
 const calc = price => {
     const calcBlock = document.querySelector(".calc-block");
     const calcType = document.querySelector(".calc-type");
@@ -7,6 +9,7 @@ const calc = price => {
     const total = document.querySelector("#total");
 
     const countCalc = () => {
+        //sendForm()
         let index = calcType.selectedIndex;
         const calcTypeValue = +calcType.options[index].value;
         const calcSquareValue = calcSquare.value;

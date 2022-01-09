@@ -1,15 +1,28 @@
 "use strick";
 import {animate} from "./helpers";
+import sendForm from "./sendForm";
 
 const modal = () => {
     
     const modal = document.querySelector(".popup");
     const buttons = document.querySelectorAll(".popup-btn");
     const contentMenu = modal.querySelector(".popup-content");
+    const forms = document.querySelectorAll("form") ;
+    
+    forms.forEach(form => {
+        //console.log(form);
+        const submit = form.querySelector("button[type='submit']");
+       
+        submit.addEventListener("click", () =>{
+            console.log("submit: ",form.id);
+            sendForm(form);
+        });
+        //console.log(submit);
+    });
     
     const showPopup = () => { 
         animate({
-        duration: 1000,
+        duration: 500,
         timing(timeFraction) {
             return circ(timeFraction);
         },
@@ -45,6 +58,7 @@ const modal = () => {
     function circ(timeFraction) {
         return 1 - Math.sin(Math.acos(timeFraction));
     }
+
 
     buttons.forEach( btn => {
         btn.addEventListener("click", () => {

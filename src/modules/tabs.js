@@ -4,7 +4,6 @@ const tabs = () => {
     const tabsPanel = document.querySelector(".service-header");
     const tabs = document.querySelectorAll(".service-header-tab");
 
-    //console.log(tabs);
     tabsPanel.addEventListener("click", e => {
         if(e.target.closest(".service-header-tab")){
             const tabBtn = e.target.closest(".service-header-tab");

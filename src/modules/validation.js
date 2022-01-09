@@ -39,7 +39,7 @@ const validation = () => {
 
     message.addEventListener("input", e => {
             let val = e.target.value;
-            const letters = /^[А-Яа-яёЁ]+$/;
+            const letters = /^[А-Яа-яёЁ0-9\.\,]+$/;
             if(!val.match(letters)){
                 e.target.value = "";
             }
@@ -55,6 +55,7 @@ const validation = () => {
                 e.target.value = "";
             }
         });
+
 
         email.addEventListener("blur", () => {
             if(!validateEmail(email.value)){
