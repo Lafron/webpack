@@ -15,6 +15,17 @@ tabs();
 slider();
 calc(100);
 
+
+const forms = document.querySelectorAll("form") ;
+    
+    forms.forEach(form => {
+        const submit = form.querySelector("button[type='submit']");
+       
+        submit.addEventListener("click", () =>{
+            console.log("click: ",form.id);
+            sendForm(form);
+        });
+    });
 //sendForm("form3");
 //     formId: "form1",
 //     // someElem: [

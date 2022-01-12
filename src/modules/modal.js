@@ -7,16 +7,7 @@ const modal = () => {
     const modal = document.querySelector(".popup");
     const buttons = document.querySelectorAll(".popup-btn");
     const contentMenu = modal.querySelector(".popup-content");
-    const forms = document.querySelectorAll("form") ;
     
-    forms.forEach(form => {
-        const submit = form.querySelector("button[type='submit']");
-       
-        submit.addEventListener("click", () =>{
-            console.log("submit: ",form.id);
-            sendForm(form);
-        });
-    });
     
     const showPopup = () => { 
         animate({

@@ -37,7 +37,7 @@ const sendForm = form => {
     };
 
     const sendForm = data => {
-        console.log(data);
+        console.log("sendForm", data);
         return fetch("https://jsonplaceholder.typicode.com/posts", {
             method: "POST",
             body: JSON.stringify(data),
@@ -73,7 +73,9 @@ const sendForm = form => {
 
         if(validate(formElems)){
             sendForm(formBody).then(data => {
+                statusBlock.textContent = "";
                 statusBlock.textContent = successText;
+                setTimeout(() => statusBlock.textContent = "", 3000);
                 formElems.forEach(input => {
                     input.value = "";
                 });
