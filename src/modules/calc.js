@@ -45,6 +45,10 @@ const calc = price => {
         }
     });
 
+    calcType.addEventListener("change", () =>{
+        total.textContent = "";
+    });
+
 };
 
 export default calc;
