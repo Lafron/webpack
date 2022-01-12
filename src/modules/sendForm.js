@@ -26,7 +26,10 @@ const sendForm = idForm =>{
 
             }else if(input.type == 'email'){
                 const letters = /^[a-zA-Z0-9@\-\_\.\!\~\*\']+$/;
-                if((input == "")||(!input.value.match(letters))){
+                if(input == ""){
+                    console.log("введите email");
+                }
+                else if(!input.value.match(letters)){
                     success = false;
                     return success;
                 }
