@@ -26,7 +26,7 @@ const sendForm = idForm =>{
 
             }else if(input.type == 'email'){
                 const letters = /^[a-zA-Z0-9@\-\_\.\!\~\*\']+$/;
-                if(!input.value.match(letters)){
+                if((input == "")||(!input.value.match(letters))){
                     success = false;
                     return success;
                 }
@@ -52,14 +52,14 @@ const sendForm = idForm =>{
         const formData = new FormData(form);
         const formBody = {};
 
-        statusBlock.textContent = loadText;
-        form.append(statusBlock);
-
         formData.forEach((val, key) => {
             formBody[key] = val;
         });
 
         if(validate(formElements)){
+            statusBlock.textContent = loadText;
+            form.append(statusBlock);
+
             sendData(formBody).
             then(data => {
                 statusBlock.textContent = successText;
@@ -67,7 +67,6 @@ const sendForm = idForm =>{
                 formElements.forEach(input => {
                     input.value = "";
                 });
-                console.log(data);
             }).catch(error => {
                 statusBlock.textContent = errorText;
             });
